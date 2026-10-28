@@ -29,7 +29,7 @@ export default function Works() {
       <div className="wrap content page-top">
         <p className="eyebrow dark">시공 사진</p>
         <h1 className="page-title">작업 사진</h1>
-        <p className="prose-p">{BRAND}이 {PHOTO_SRC}에 직접 올린 시공 사진 {PHOTOS.length}장입니다. 방문자 리뷰 사진은 넣지 않았고, 설명은 사진에 보이는 것만 적었습니다.</p>
+        <p className="prose-p">{BRAND}가 {PHOTO_SRC}에 직접 올린 시공 사진 {PHOTOS.length}장입니다. 방문자 리뷰 사진은 넣지 않았고, 설명은 사진에 보이는 것만 적었습니다.</p>
         <section className="sec">
           <h2 className="area-h">현장 사진</h2>
           <div className="gallery">

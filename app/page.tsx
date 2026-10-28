@@ -105,7 +105,7 @@ export default function Home() {
 
       <div className="wrap content">
         <section className="sec">
-          <SectionHead no="03" title="시공 사진" sub={`${BRAND}이 ${PHOTO_SRC}에 올린 시공 사진 ${PHOTOS.length}장입니다.`} />
+          <SectionHead no="03" title="시공 사진" sub={`${BRAND}가 ${PHOTO_SRC}에 올린 시공 사진 ${PHOTOS.length}장입니다.`} />
           <div className="rail-nav">
             <button type="button" data-scroll="-1" data-target="case-rail" aria-label="이전 사진">←</button>
             <button type="button" data-scroll="1" data-target="case-rail" aria-label="다음 사진">→</button>
@@ -134,7 +134,7 @@ export default function Home() {
           <SectionHead no="04" title="업체 소개" sub="업체 홈페이지 인사말·영업안내 문구를 옮겼습니다." />
           <div className="cols">
             <div className="prose" data-reveal>
-              <p className="first">{BRAND}은 화성 지역을 중심으로 작업하고, 주변 지역도 상담을 거쳐 출장합니다.</p>
+              <p className="first">{BRAND}는 화성 지역을 중심으로 작업하고, 주변 지역도 상담을 거쳐 출장합니다.</p>
               <p>내부철거, 상가철거, 인테리어철거, 건물철거, 원상복구, 완파 등 철거 현장 작업을 하고, 작업 전 안전 교육을 필수로 진행한다고 소개합니다. 현장 작업자가 직접 공사를 책임지는 방식입니다.</p>
               <p>철거부터 폐기물 수거·운반·처리까지 한 번에 맡는 것이 업체가 내건 방식입니다. 업체 홈페이지: <a href={HOMEPAGE} target="_blank" rel="noopener">01083536611.smb114.kr</a></p>
             </div>
