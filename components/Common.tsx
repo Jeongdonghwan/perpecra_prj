@@ -46,7 +46,6 @@ export const Header = () => (
   <header className="site-header">
     <div className="wrap header-inner">
       <Link href="/" className="logo" aria-label={`${BRAND} 홈`}>
-        <span className="logo-mark" aria-hidden="true" />
         <span><b>{BRAND}</b><small>철거 · 원상복구 · 폐업 정리</small></span>
       </Link>
       <nav className="nav" aria-label="주 메뉴">

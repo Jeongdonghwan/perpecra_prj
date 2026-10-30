@@ -4,7 +4,7 @@ import { OPEN_PAGES, PHOTOS, PLACES, REGIONS, openRegions, regionPages, regionPa
 import { W } from '../lib/compose';
 import { BRAND, BIZ, CONTACT, HOMEPAGE, PHOTO_SRC, shareMeta } from '../lib/site';
 import { faqJsonLd, itemListJsonLd } from '../lib/jsonld';
-import { Actions, IconArrow, JsonLd, PlaceLink, SectionHead, Ticker } from '../components/Common';
+import { Actions, IconArrow, JsonLd, PlaceLink, SectionHead } from '../components/Common';
 
 const HOME_TITLE = `${BRAND} | 화성 철거·원상복구·공장철거 업체`;
 const HOME_DESC = `화성 병점구 ${BRAND}. 상가·인테리어·내부·공장철거, 원상복구, 폐기물 수거·운반·처리까지 한 번에. 24시간 영업·연중무휴, 무료견적상담 ${CONTACT.phone}.`;
@@ -46,10 +46,12 @@ const FAQ = [
   { q: '건물 전체 철거도 하나요?', a: '주요업무에 건물철거·완파가 있습니다. 건물 해체는 건축물관리법상 허가·신고 절차가 있어 규모를 보고 상담합니다.' },
 ];
 
+// 업체 홈페이지 '주요업무' 항목
+const SVC = ['상가철거', '인테리어철거', '내부철거', '공장철거', '원상복구', '완파', '폐기물 수거·운반·처리'];
+
 export default function Home() {
   const regions = openRegions();
   const hubs = OPEN_PAGES.filter((p) => inSitemap(p)).slice(0, 30);
-  const tickerNames = Array.from(new Set(OPEN_PAGES.map((p) => PLACES[p.place].name))).slice(0, 26);
   const svcLink = (w: string) => OPEN_PAGES.find((p) => inSitemap(p) && p.word === w && p.place === '화성' && p.mod === '업체') || OPEN_PAGES.find((p) => p.word === w);
   const hero = PHOTOS[0];
 
@@ -77,7 +79,9 @@ export default function Home() {
         </ul>
       </div>
 
-      <Ticker items={tickerNames} />
+      <div className="svc-marquee" aria-hidden="true">
+        <div className="svc-track">{[...SVC, ...SVC].map((t, i) => <span key={i}>{t}</span>)}</div>
+      </div>
 
       <div className="wrap content">
         <section className="sec">

@@ -20,7 +20,7 @@ export const CONTACT = {
 export const HOMEPAGE = 'http://01083536611.smb114.kr/';
 
 // 사진 출처 — 플레이스 사진 탭이 열리면 '네이버 플레이스'로 바꾸고 scripts/prepare_images.py 원본 교체
-export const PHOTO_SRC = '업체 홈페이지 갤러리';
+export const PHOTO_SRC = '업체 홈페이지·네이버 플레이스';
 
 export const BIZ = {
   // 플레이스 정보 탭 주소
