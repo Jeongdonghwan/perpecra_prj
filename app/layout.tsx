@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: { default: SITE_NAME, template: `%s` },
   robots: { index: true, follow: true },
   icons: { icon: [{ url: '/favicon.ico', sizes: 'any' }, { url: '/icon.png', type: 'image/png', sizes: '192x192' }], apple: '/apple-touch-icon.png' },
-  // TODO: 서치어드바이저·서치콘솔 소유확인 코드 (verification: { other: { 'naver-site-verification': '...' } })
+  verification: { other: { 'naver-site-verification': 'd9ef6c62c6d494760973a1ba7ff39d9ed288248a' } }, // TODO: 서치콘솔(google) 코드 받으면 추가
 };
 
 export const viewport: Viewport = { themeColor: '#14213a', width: 'device-width', initialScale: 1 };
