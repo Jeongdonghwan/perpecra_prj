@@ -1,8 +1,8 @@
 // 사이트 설정 — 연락처·업체 정보·도메인은 이 파일만 고치면 전 페이지에 반영된다.
 // 근거: 네이버 플레이스 https://m.place.naver.com/place/1319052327 (홈·정보·사진·리뷰 탭, 2026-10-28 확인)
 
-// TODO(도메인 확정 후): SITE_URL 환경변수로 넘기거나 기본값 교체. 배포: bash scripts/deploy.sh <단계> <URL>
-export const SITE_URL = process.env.SITE_URL || 'https://perfect-demo.example';
+// 배포: bash scripts/deploy.sh <단계 1~4> <URL>
+export const SITE_URL = process.env.SITE_URL || 'https://xn--v69aj42dyfenwafe.kr'; // 퍼펙트철거.kr (퓨니코드)
 export const BRAND = '퍼펙트철거';
 export const SITE_NAME = `${BRAND} | 철거·원상복구·공장철거·폐업 매입`;
 
@@ -39,8 +39,8 @@ export const BIZ = {
 };
 
 // 순차 오픈: 이 단계 이하의 페이지만 빌드·사이트맵·내부링크에 포함된다.
-//   OPEN_WAVE=1 npx next build  (1 = 우선순위1 권역 대표 25 / 2 = +우선순위2 시·구 425 / 3 = 전체 1,000)
-export const OPEN_WAVE = Number(process.env.OPEN_WAVE || 3);
+//   OPEN_WAVE=1~4 (data/drip.json 일정: 오픈일 25% → 2일 50% → 4일 75% → 6일 100%)
+export const OPEN_WAVE = Number(process.env.OPEN_WAVE || 4);
 
 // 표기만 다른 키워드(강남/강남구/서울 강남, 수원/수원시, 장안구/수원 장안구 …)는 대표 페이지로 canonical + 사이트맵 제외
 export const MERGE_VARIANTS = true;
