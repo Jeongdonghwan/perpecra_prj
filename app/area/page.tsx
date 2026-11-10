@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { REGIONS, OPEN_PAGES, PLACES, openRegions, regionPages, regionPath, regionEncodedPath, pagePath, pageEncodedPath, inSitemap } from '../../lib/data';
+import { regionText, REGIONS, OPEN_PAGES, PLACES, openRegions, regionPages, regionPath, regionEncodedPath, pagePath, pageEncodedPath, inSitemap } from '../../lib/data';
 import { breadcrumbJsonLd, itemListJsonLd } from '../../lib/jsonld';
 import { IconArrow, JsonLd } from '../../components/Common';
 import { BRAND, shareMeta } from '../../lib/site';
 
 const TITLE = `지역별 철거·원상복구·폐업 매입 안내 | ${BRAND}`;
-const DESC = '강남·화성·수원·광명·안산 지역별 철거, 원상복구, 공장철거, 에어컨매입, 주방가전매입 안내. 시·구와 생활권별 페이지를 모았습니다.';
+const DESC = `${regionText()} 지역별 철거, 원상복구, 공장철거, 에어컨매입, 주방가전매입 안내. 시·구와 생활권별 페이지를 모았습니다.`;
 export const metadata: Metadata = {
   title: TITLE,
   description: DESC,

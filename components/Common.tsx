@@ -2,6 +2,7 @@
 // 사용자 요청: 네이버 플레이스 링크를 헤더·히어로·푸터·하단 고정바에 고정 → PlaceLink 를 전화번호와 한 묶음으로 쓴다.
 import Link from 'next/link';
 import { BRAND, CONTACT, BIZ, PLACE_URL, tel } from '../lib/site';
+import { regionText } from '../lib/data';
 
 export const JsonLd = ({ data }: { data: object | object[] }) => (
   <>{(Array.isArray(data) ? data : [data]).map((d, i) => <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(d) }} />)}</>
@@ -63,7 +64,7 @@ export const Footer = () => (
     <div className="wrap foot-grid">
       <div>
         <strong className="foot-brand">{BRAND}</strong>
-        <p>{BIZ.category} · 실내 철거 · 원상복구 · 공장철거 · 폐업 에어컨·주방기기 매입 상담<br />강남 · 화성 · 수원 · 광명 · 안산 지역 안내</p>
+        <p>{BIZ.category} · 실내 철거 · 원상복구 · 공장철거 · 폐업 에어컨·주방기기 매입 상담<br />{regionText(' · ')} 지역 안내</p>
         <p><Link href="/area/">지역 안내</Link> · <Link href="/works/">작업 사진</Link> · <a href="/rss.xml">RSS</a></p>
         <PlaceLink className="foot-place" />
       </div>

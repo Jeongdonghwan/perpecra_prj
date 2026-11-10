@@ -69,7 +69,7 @@ def main():
     force = '--force' in sys.argv
     OUT.mkdir(parents=True, exist_ok=True)
     pages = json.loads((ROOT / 'data' / 'site-pages.json').read_text(encoding='utf-8'))['pages']
-    regions = ['강남', '화성', '수원', '광명', '안산']
+    regions = json.loads((ROOT / 'data' / 'places.json').read_text(encoding='utf-8'))['regionOrder']
     sub = {'철거': '매장·사무실 실내 철거 · 폐기물 반출', '원상복구': '임대 원상복구 · 퇴거일 맞춤', '공장철거': '설비 해체 · 고철·폐기물 분리',
            '에어컨매입': '폐업 에어컨 매입·철거 · 현장 확인', '주방가전매입': '업소용 주방기기 매입 · 주방 철거'}
     jobs = [('home', f'철거·원상복구 {BRAND}', '실내 철거 · 원상복구 · 공장철거 · 폐업 매입'),

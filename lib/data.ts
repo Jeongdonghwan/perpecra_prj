@@ -43,6 +43,7 @@ export function getPage(slug: string): Page | undefined {
 
 export const openRegions = () => REGION_ORDER.filter((r) => OPEN_PAGES.some((p) => p.region === r));
 export const regionPages = (r: string) => OPEN_PAGES.filter((p) => p.region === r);
+export const regionText = (sep = '·') => openRegions().join(sep);
 
 const hash = (s: string) => {
   let h = 2166136261;
