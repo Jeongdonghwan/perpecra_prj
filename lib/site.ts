@@ -41,6 +41,7 @@ export const BIZ = {
 // 순차 오픈: 이 단계 이하의 페이지만 빌드·사이트맵·내부링크에 포함된다.
 //   OPEN_WAVE=1~4 (data/drip.json 일정: 오픈일 25% → 2일 50% → 4일 75% → 6일 100%)
 export const OPEN_WAVE = Number(process.env.OPEN_WAVE || 4);
+export const UPDATED = '2026-11-16'; // content revision date - bump when page text changes
 
 // 표기만 다른 키워드(강남/강남구/서울 강남, 수원/수원시, 장안구/수원 장안구 …)는 대표 페이지로 canonical + 사이트맵 제외
 export const MERGE_VARIANTS = true;
