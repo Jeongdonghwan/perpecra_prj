@@ -1,4 +1,4 @@
-import { SITE_URL, SITE_NAME, BRAND, CONTACT, BIZ, PLACE_URL } from './site';
+import { SITE_URL, SITE_NAME, BRAND, CONTACT, BIZ, PLACE_URL, UPDATED } from './site';
 
 // 업체 — 네이버 플레이스 표기(상호·전화·주소·영업시간·업종)만
 export const businessJsonLd = () => ({
@@ -47,6 +47,7 @@ export const serviceJsonLd = (o: { name: string; type: string; description: stri
   url: `${SITE_URL}${o.path}`,
   image: `${SITE_URL}${o.image}`,
   areaServed: { '@type': 'Place', name: o.area },
+  dateModified: UPDATED,
   provider: { '@id': `${SITE_URL}/#business` },
 });
 
