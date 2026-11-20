@@ -7,7 +7,7 @@ import { faqJsonLd, itemListJsonLd } from '../lib/jsonld';
 import { Actions, IconArrow, JsonLd, PlaceLink, SectionHead } from '../components/Common';
 
 const HOME_TITLE = `${BRAND} | 화성 철거·원상복구·공장철거 업체`;
-const HOME_DESC = `화성 병점구 ${BRAND}. 상가·인테리어·내부·공장철거, 원상복구, 폐기물 수거·운반·처리까지 한 번에. 24시간 영업·연중무휴, 무료견적상담 ${CONTACT.phone}.`;
+const HOME_DESC = `화성 병점구 ${BRAND}. 상가·인테리어·내부·공장철거와 원상복구, 폐기물 처리까지. 24시간 영업·연중무휴, 무료 견적.`;
 export const metadata: Metadata = {
   title: HOME_TITLE,
   description: HOME_DESC,
