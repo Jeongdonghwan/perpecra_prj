@@ -61,11 +61,11 @@ export const rotate = <T,>(arr: T[], seed: string, salt = ''): T[] => {
 export const wordGroup = (w: Word) => (w === '에어컨매입' || w === '주방가전매입' ? '매입' : w === '공장철거' ? '공장' : '내부');
 
 // 관련 페이지 — 열린 대표 페이지만. 같은 장소 다른 단어 / 같은 권역 같은 단어 / 다른 권역 같은 단어
-export function related(p: Page) {
+export function related(p: Page, n = 8) {
   const pool = OPEN_PAGES.filter((x) => x.slug !== p.slug && inSitemap(x));
-  const samePlace = rotate(pool.filter((x) => x.place === p.place && (x.word !== p.word || x.mod !== p.mod)), p.slug, 'rp').slice(0, 8);
-  const sameRegion = rotate(pool.filter((x) => x.region === p.region && x.place !== p.place && x.word === p.word && x.mod === p.mod), p.slug, 'rel').slice(0, 8);
-  const otherRegions = pool.filter((x) => x.region !== p.region && PLACES[x.place].kind === '시구' && x.place === x.region && x.word === p.word && x.mod === p.mod).slice(0, 4);
+  const samePlace = rotate(pool.filter((x) => x.place === p.place && (x.word !== p.word || x.mod !== p.mod)), p.slug, 'rp').slice(0, n);
+  const sameRegion = rotate(pool.filter((x) => x.region === p.region && x.place !== p.place && x.word === p.word && x.mod === p.mod), p.slug, 'rel').slice(0, n);
+  const otherRegions = pool.filter((x) => x.region !== p.region && PLACES[x.place].kind === '시구' && x.place === x.region && x.word === p.word && x.mod === p.mod).slice(0, n > 5 ? 4 : 3);
   return { samePlace, sameRegion, otherRegions };
 }
 
