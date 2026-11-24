@@ -23,6 +23,17 @@ const WORD_CAT: Record<string, string> = { 철거: '실내 철거', 원상복구
 const MOD_CAT: Record<string, string> = { 업체: '작업 범위', 가격: '비용 기준', 추천: '업체 고르기' };
 const CTX_NOUN: Record<string, string> = { office: '사무실·업무 공간', retail: '매장·음식점', resi: '단지 상가·생활 매장', factory: '공장·창고', old: '오래된 상가·주택' };
 
+// h1 수식어: "키워드 수식어"가 40자를 넘지 않는 벌을 해시 순서로 고르고, 다 넘으면 구 단위로 자른다 (title 앞부분 = h1)
+const fitSub = (kw: string, arr: string[], seed: string) => {
+  const k = hi(`${seed}::h1sub`) % arr.length;
+  const order = [...arr.slice(k), ...arr.slice(0, k)];
+  const ok = order.find((x) => kw.length + 1 + x.length <= 40);
+  if (ok) return ok;
+  const words = order[0].split(' ');
+  while (words.length > 1 && kw.length + 1 + words.join(' ').length > 40) words.pop();
+  return words.join(' ').replace(/[,·]$/, '');
+};
+
 export function composeRay(p: Page) {
   const c = compose(p);
   const P = PLACES[p.place];
@@ -42,11 +53,11 @@ export function composeRay(p: Page) {
   const tb = c.view.table;
   const b0 = P.bldg.split(',')[0].trim();
 
-  const h1sub = pick({
+  const h1sub = fitSub(kw, {
     업체: [`${sp[0]} 주변 현장, 범위부터 반출까지`, `견적부터 ${d.steps[3].title}까지 순서`, `${mi[0]}·${mi[1]} 포함 작업 범위`, `${first} 먼저 확인`],
     가격: [`${mi[0]}·${mi[1]}로 갈리는 견적`, `${sp[0]} 주변 현장 견적 항목`, `${first}부터 보는 비용`, `${cn} 현장 견적 기준`],
     추천: [`${d.picks[0].name} 먼저 볼 것`, `${sp[0]} 주변 현장 업체 고르는 기준`, `${cn} 현장 업체 고르는 법`, `${d.picks[1].name}부터 확인`],
-  }[p.mod], s, 'h1sub');
+  }[p.mod], s);
 
   const cat = `${P.admin.split(' ').slice(0, 2).join(' ')} · ${WORD_CAT[p.word]} · ${MOD_CAT[p.mod]}`;
 
@@ -119,5 +130,5 @@ export function composeRay(p: Page) {
     `${kw} — ${t[0]}부터. 현장 견적 ${CONTACT.phone}`,
   ].find((x) => x.length <= 80)!;
 
-  return { ...c, h1sub, cat, summaryText: summary, facts: c.summary, sections, description };
+  return { ...c, title: `${kw} ${h1sub} | ${BRAND}`, h1sub, cat, summaryText: summary, facts: c.summary, sections, description };
 }
